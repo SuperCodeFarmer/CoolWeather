@@ -39,10 +39,11 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("WeatherActivity","ylyWeatherActivity");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        Log.d("yly","ylyWeatherActivity");
 
         weatherLayout=findViewById(R.id.weather_layout);
         titleCity=findViewById(R.id.title_city);
