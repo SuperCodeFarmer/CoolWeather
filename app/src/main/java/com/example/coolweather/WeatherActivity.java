@@ -39,7 +39,6 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e("WeatherActivity","ylyWeatherActivity");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
@@ -70,7 +69,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void requestWeather(final String weatherId) {
-        String weatherUrl="http://guolin.tech/api/weather?city="
+        String weatherUrl="http://guolin.tech/api/weather?cityid="
                 +weatherId+"&key=a2d3807677c04e138de67efc05d421f2";
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
@@ -79,7 +78,8 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(WeatherActivity.this,"获取天气信息失败",Toast.LENGTH_SHORT).show();
+                        Log.d("WeatherActivity","fail1");
+                        Toast.makeText(WeatherActivity.this,"获取天气信息失败1",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -98,7 +98,8 @@ public class WeatherActivity extends AppCompatActivity {
                             editor.apply();
                             showWeatherInfo(weather);
                         }else{
-                            Toast.makeText(WeatherActivity.this,"获取天气信息失败",Toast.LENGTH_SHORT).show();
+                            Log.d("WeatherActivity","fail2");
+                            Toast.makeText(WeatherActivity.this,"获取天气信息失败2",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
